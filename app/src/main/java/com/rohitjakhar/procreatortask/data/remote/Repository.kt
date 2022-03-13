@@ -1,7 +1,9 @@
 package com.rohitjakhar.procreatortask.data.remote
 
 import com.rohitjakhar.procreatortask.data.model.MovieDetailsModel
-import com.rohitjakhar.procreatortask.data.model.MovieListModel
+import com.rohitjakhar.procreatortask.data.model.MoviesModel
+import com.rohitjakhar.procreatortask.data.model.getDirector
+import com.rohitjakhar.procreatortask.data.model.getWriter
 import com.rohitjakhar.procreatortask.data.model.toMovieDetails
 import com.rohitjakhar.procreatortask.data.model.toMovieList
 import com.rohitjakhar.procreatortask.data.webservice.AppService
@@ -11,7 +13,7 @@ import javax.inject.Inject
 class Repository @Inject constructor(
     private val appService: AppService
 ) {
-    suspend fun getMovieListRepo(): Resource<MovieListModel> {
+    suspend fun getMovieListRepo(): Resource<List<MoviesModel>> {
         val task = appService.getMovieList()
         if (task.isSuccessful) {
             task.body()?.let {
@@ -32,11 +34,25 @@ class Repository @Inject constructor(
         }
     }
 
-    suspend fun getMovieDetailsRepo(): Resource<MovieDetailsModel> {
-        val task = appService.getMovieDetails()
+    suspend fun getMovieDetailsRepo(movieId: String): Resource<MovieDetailsModel> {
+        val task = appService.getMovieDetails(movieId)
         if (task.isSuccessful) {
             task.body()?.let {
-                return Resource.Success(data = it.toMovieDetails())
+                val creditTask = appService.getMovieCredit(movieId)
+                return if (creditTask.isSuccessful) {
+                    if (creditTask.body() != null) {
+                        Resource.Success(
+                            data = it.toMovieDetails().copy(
+                                movieDirector = creditTask.body()!!.getDirector(),
+                                movieWriter = creditTask.body()!!.getWriter()
+                            )
+                        )
+                    } else {
+                        Resource.Success(data = it.toMovieDetails())
+                    }
+                } else {
+                    Resource.Success(data = it.toMovieDetails())
+                }
             } ?: run {
                 return Resource.Empty()
             }

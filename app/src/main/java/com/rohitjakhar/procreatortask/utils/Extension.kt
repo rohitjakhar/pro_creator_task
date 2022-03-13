@@ -11,6 +11,10 @@ fun View.show() {
     visibility = View.VISIBLE
 }
 
-fun Delegates.nullOnDestroy() {
-
+fun String.toImageLink(): String {
+    if (this.isNotEmpty()) {
+        return "https://image.tmdb.org/t/p/w200/$this"
+    } else {
+        return "https://via.placeholder.com/200?text=No%20Image"
+    }
 }
