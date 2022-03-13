@@ -10,7 +10,7 @@ import com.rohitjakhar.procreatortask.data.webservice.AppService
 import com.rohitjakhar.procreatortask.utils.Resource
 import javax.inject.Inject
 
-class Repository @Inject constructor(
+class MovieRepository @Inject constructor(
     private val appService: AppService
 ) {
     suspend fun getMovieListRepo(): Resource<List<MoviesModel>> {

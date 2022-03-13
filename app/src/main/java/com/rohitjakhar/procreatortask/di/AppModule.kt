@@ -34,10 +34,12 @@ object AppModule {
     @Provides
     @Singleton
     fun provideOkHttp(
-        loggingInterceptor: HttpLoggingInterceptor
-    ): okhttp3.Call.Factory {
+        loggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: AuthInterceptor
+    ): Call.Factory {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(authInterceptor)
             .callTimeout(300, TimeUnit.SECONDS)
             .readTimeout(300, TimeUnit.SECONDS)
             .connectTimeout(300, TimeUnit.SECONDS)
@@ -47,7 +49,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRetrofit(
-        callFactory: okhttp3.Call.Factory
+        callFactory: Call.Factory
     ): Retrofit = Retrofit.Builder()
         .baseUrl(BuildConfig.API_LINK)
         .callFactory(callFactory)
