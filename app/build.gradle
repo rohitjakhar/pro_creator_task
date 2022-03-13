@@ -21,6 +21,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField 'String', "API_LINK", "\"https://api.themoviedb.org/3/\""
+            buildConfigField 'String', "TOKEN", "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2Yzg4NTA1YTcxNzMxNjA1YmE0NTIyZGEzMzNiZWZkYyIsInN1YiI6IjYyMmQ3ZGMxMjk3MzM4MDA0NjI5ZWQ2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dHju3lRGBYQgJUbJgk0Olykv1fNeVkUzgChziemK-m0"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
