@@ -1,7 +1,8 @@
-package com.rohitjakhar.procreatortask.data.model
+package com.rohitjakhar.procreatortask.data.model.dto
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import com.rohitjakhar.procreatortask.data.model.MoviesModel
 import com.rohitjakhar.procreatortask.toImageLink
 
 @Keep

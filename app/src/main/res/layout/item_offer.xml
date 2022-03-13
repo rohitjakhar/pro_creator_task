@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:background="@drawable/voucher_item_back_ground"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/iv_offer_image"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/offer_image_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_voucher_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_offer_image"
+            tools:text="Bayar Pakai Debit BCA" />
+
+
+        <TextView
+            android:id="@+id/tv_offer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/tv_voucher_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_voucher_title"
+            tools:text="Mulani" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gold"
+            app:layout_constraintStart_toStartOf="@+id/tv_offer_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_offer_name"
+            tools:text="Rp.20,000" />
+
+        <TextView
+            android:id="@+id/tv_voucher_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:textColor="@color/gold"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_user_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_user_name"
+            tools:text="/30 Hari" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            app:cardBackgroundColor="@color/gold"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_voucher_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_name">
+
+            <TextView
+                android:id="@+id/tv_voucher_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:textColor="@color/black"
+                tools:text="Klik Disini" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

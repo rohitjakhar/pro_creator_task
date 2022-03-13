@@ -2,10 +2,10 @@ package com.rohitjakhar.procreatortask.data.remote
 
 import com.rohitjakhar.procreatortask.data.model.MovieDetailsModel
 import com.rohitjakhar.procreatortask.data.model.MoviesModel
-import com.rohitjakhar.procreatortask.data.model.getDirector
-import com.rohitjakhar.procreatortask.data.model.getWriter
-import com.rohitjakhar.procreatortask.data.model.toMovieDetails
-import com.rohitjakhar.procreatortask.data.model.toMovieList
+import com.rohitjakhar.procreatortask.data.model.dto.getDirector
+import com.rohitjakhar.procreatortask.data.model.dto.getWriter
+import com.rohitjakhar.procreatortask.data.model.dto.toMovieDetails
+import com.rohitjakhar.procreatortask.data.model.dto.toMovieList
 import com.rohitjakhar.procreatortask.data.webservice.AppService
 import com.rohitjakhar.procreatortask.utils.Resource
 import javax.inject.Inject

@@ -5,4 +5,10 @@
     <string name="home">Home</string>
     <string name="ticket">Ticket</string>
     <string name="hall">Hall</string>
+    <string name="voucher_deals">Voucher Deals</string>
+    <string name="lihat_semua">Lihat Semua</string>
+    <string name="sedang_tayang">Sedang Tayang</string>
+    <string name="tangerrange_selatan">Tangerrange Selatan</string>
+    <string name="user_icon">user icon</string>
+    <string name="klik_disini">Klik Disini</string>
 </resources>

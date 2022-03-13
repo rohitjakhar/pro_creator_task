@@ -1,4 +1,4 @@
-package com.rohitjakhar.procreatortask.data.model
+package com.rohitjakhar.procreatortask.data.model.dto
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

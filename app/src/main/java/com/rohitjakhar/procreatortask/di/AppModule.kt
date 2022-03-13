@@ -1,6 +1,5 @@
 package com.rohitjakhar.procreatortask.di
 
-import com.rohitjakhar.procreatortask.BuildConfig
 import com.rohitjakhar.procreatortask.data.webservice.AppService
 import com.rohitjakhar.procreatortask.data.webservice.AuthInterceptor
 import dagger.Module
@@ -28,7 +27,6 @@ object AppModule {
     }
 
     @Provides
-    @Singleton
     fun provideAuth() = AuthInterceptor()
 
     @Provides
@@ -51,7 +49,7 @@ object AppModule {
     fun provideRetrofit(
         callFactory: Call.Factory
     ): Retrofit = Retrofit.Builder()
-        .baseUrl(BuildConfig.API_LINK)
+        .baseUrl(com.rohitjakhar.procreatortask.BuildConfig.API_LINK)
         .callFactory(callFactory)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
