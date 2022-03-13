@@ -7,8 +7,9 @@
 
     <ImageView
         android:id="@+id/iv_movie_poster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
         android:src="@drawable/image_placeholder"
         android:elevation="8dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +23,7 @@
         tools:text="Start Wars: The Last"
         tools:textColor="@color/black"
         android:textColor="@color/white"
+        style="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_movie_poster"

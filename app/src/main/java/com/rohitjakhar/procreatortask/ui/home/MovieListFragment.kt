@@ -1,12 +1,15 @@
 package com.rohitjakhar.procreatortask.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.rohitjakhar.procreatortask.data.model.VoucherDealModel
 import com.rohitjakhar.procreatortask.databinding.FragmentMovieListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +21,15 @@ class MovieListFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: MovieListViewModel by viewModels()
     private val voucherDealAdapter by lazy { VoucherDealAdapter() }
+    private val movieListAdapter by lazy {
+        MovieListAdapter() { movieId ->
+            findNavController().navigate(
+                MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(
+                    movieId
+                )
+            )
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +44,17 @@ class MovieListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initVoucherDealRV()
+        initMovieListRV()
         collectUiState()
+    }
+
+    private fun initMovieListRV() {
+        binding.rvMovieList.apply {
+            adapter = movieListAdapter
+            layoutManager = LinearLayoutManager(requireContext()).apply {
+                orientation = LinearLayoutManager.HORIZONTAL
+            }
+        }
     }
 
     private fun initVoucherDealRV() = binding.apply {
@@ -77,6 +99,7 @@ class MovieListFragment : Fragment() {
                 } else {
                     if (it.movieList.isNotEmpty()) {
                         // TODO: Submit Item to Adapter
+                        movieListAdapter.submitList(it.movieList)
                     } else {
                         // TODO: Show Error
                     }
