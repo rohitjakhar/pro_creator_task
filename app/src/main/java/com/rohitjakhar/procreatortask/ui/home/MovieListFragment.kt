@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.MarginPageTransformer
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.rohitjakhar.procreatortask.R
@@ -68,6 +69,11 @@ class MovieListFragment : Fragment() {
     private fun initOfferPager() {
         binding.viewPagerOffer.apply {
             adapter = offerPagerAdapter
+            clipToPadding = false
+            clipChildren = false
+            offscreenPageLimit = 3
+            setPageTransformer(MarginPageTransformer(80))
+            setPadding(40, 0, 40, 0)
         }
         offerPagerAdapter.submitList(getOfferData())
     }
