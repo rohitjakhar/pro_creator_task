@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_movie_details_scene"
     tools:background="@color/black">
 
     <ImageView
@@ -188,10 +189,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:alpha="0.5"
-                    android:textSize="16sp"
-                    android:text="@string/duration" />
+                    android:text="@string/duration"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_movie_duration"
@@ -224,10 +225,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:alpha="0.5"
                     android:text="@string/p_g"
                     android:textColor="@color/white"
-                    android:alpha="0.5"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_age_req"
@@ -259,14 +260,15 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/white"
         android:alpha="0.5"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_sinopsis" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -280,4 +282,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
