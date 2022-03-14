@@ -6,6 +6,7 @@ import com.rohitjakhar.procreatortask.data.remote.MovieRepository
 import com.rohitjakhar.procreatortask.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,7 +23,7 @@ class MovieListViewModel @Inject constructor(
         viewModelScope.launch(IO) {
             when (val task = movieRepository.getMovieListRepo()) {
                 is Resource.Empty -> {
-                    _movieListState.value = MovieListState()
+                    _movieListState.value = MovieListState(error = task.message ?: "Movie List Empty")
                 }
                 is Resource.Error -> {
                     _movieListState.value = MovieListState(error = task.message ?: "Unknown Error")

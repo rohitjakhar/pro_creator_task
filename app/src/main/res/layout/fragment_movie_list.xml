@@ -91,6 +91,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/view_pager_offer" />
 
+            <ProgressBar
+                android:id="@+id/progress_movie_load"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_movie_list"
                 android:layout_width="match_parent"

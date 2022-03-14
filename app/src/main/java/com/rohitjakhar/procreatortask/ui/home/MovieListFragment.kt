@@ -17,6 +17,8 @@ import com.rohitjakhar.procreatortask.R
 import com.rohitjakhar.procreatortask.data.dummy_data.getOfferData
 import com.rohitjakhar.procreatortask.data.dummy_data.getVoucherData
 import com.rohitjakhar.procreatortask.databinding.FragmentMovieListBinding
+import com.rohitjakhar.procreatortask.hide
+import com.rohitjakhar.procreatortask.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -100,13 +102,16 @@ class MovieListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.movieListState.collectLatest {
                 if (it.isLoading) {
-                    // TODO: Show Loading View
+                    binding.rvMovieList.hide()
+                    binding.progressMovieLoad.show()
                 } else {
+                    binding.progressMovieLoad.hide()
                     if (it.movieList.isNotEmpty()) {
-                        // TODO: Submit Item to Adapter
+                        binding.rvMovieList.show()
                         movieListAdapter.submitList(it.movieList)
                     } else {
-                        // TODO: Show Error
+                        Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
             }

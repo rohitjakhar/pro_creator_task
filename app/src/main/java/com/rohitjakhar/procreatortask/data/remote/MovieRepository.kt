@@ -1,6 +1,5 @@
 package com.rohitjakhar.procreatortask.data.remote
 
-import android.util.Log
 import com.rohitjakhar.procreatortask.data.model.MovieDetailsModel
 import com.rohitjakhar.procreatortask.data.model.MoviesModel
 import com.rohitjakhar.procreatortask.data.model.dto.getDirector
@@ -21,17 +20,7 @@ class MovieRepository @Inject constructor(
                 return Resource.Success(data = it.toMovieList())
             } ?: run { return Resource.Empty() }
         } else {
-            return when (task.code()) {
-                402 -> {
-                    Resource.Error(message = "")
-                }
-                503 -> {
-                    Resource.Error(message = "")
-                }
-                else -> {
-                    Resource.Error(message = task.message())
-                }
-            }
+            return Resource.Error(message = task.message())
         }
     }
 
@@ -58,17 +47,7 @@ class MovieRepository @Inject constructor(
                 return Resource.Empty()
             }
         } else {
-            return when (task.code()) {
-                402 -> {
-                    Resource.Error(message = "")
-                }
-                503 -> {
-                    Resource.Error(message = "")
-                }
-                else -> {
-                    Resource.Error(message = task.message())
-                }
-            }
+            return Resource.Error(message = task.message())
         }
     }
 }
