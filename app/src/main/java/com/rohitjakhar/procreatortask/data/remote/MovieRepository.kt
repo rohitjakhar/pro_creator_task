@@ -1,5 +1,6 @@
 package com.rohitjakhar.procreatortask.data.remote
 
+import android.util.Log
 import com.rohitjakhar.procreatortask.data.model.MovieDetailsModel
 import com.rohitjakhar.procreatortask.data.model.MoviesModel
 import com.rohitjakhar.procreatortask.data.model.dto.getDirector

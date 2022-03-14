@@ -1,6 +1,6 @@
 package com.rohitjakhar.procreatortask.data.model.dto
-import androidx.annotation.Keep
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.rohitjakhar.procreatortask.data.model.MovieDetailsModel
 import com.rohitjakhar.procreatortask.toImageLink
@@ -110,12 +110,13 @@ data class MovieDetailsDto(
 }
 
 fun MovieDetailsDto.toGenreString(): String {
-    val genreString: String = ""
+    val listOfCreator = mutableListOf<String>()
     genres.forEach {
-        genreString.plus("${it.name}, ")
+        listOfCreator.add(it.name)
     }
-    return genreString.removeSuffix(" ,")
+    return listOfCreator.joinToString(", ")
 }
+
 fun MovieDetailsDto.toMovieDetails(): MovieDetailsModel {
     return MovieDetailsModel(
         movieName = originalTitle,
