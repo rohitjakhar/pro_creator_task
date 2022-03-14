@@ -19,8 +19,8 @@
 
     <ImageView
         android:id="@+id/iv_movie_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="-40dp"
         android:src="@drawable/image_placeholder"
@@ -32,6 +32,7 @@
         style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="Star Wars: The Last Jedi"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,79 +43,78 @@
         android:id="@+id/ll_movie_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:orientation="horizontal"
         android:weightSum="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_movie_photo"
         app:layout_constraintTop_toBottomOf="@+id/tv_movie_title">
 
-       <LinearLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:orientation="vertical"
-           android:layout_weight="1"
-           >
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textColor="@color/white"
-               android:text="@string/director"
-               />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textColor="@color/white"
-               android:text="@string/writter"
-               />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textColor="@color/white"
-               android:text="@string/genre"
-               />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textColor="@color/white"
-               android:text="@string/production_house"
-               />
-       </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/director"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/writter"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genre"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/production_house"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="1"
-            >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_director_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:text="@string/director"
-                />
+                android:textColor="@color/white" />
+
             <TextView
                 android:id="@+id/tv_writter_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:text="@string/writter"
-                />
+                android:textColor="@color/white" />
+
             <TextView
                 android:id="@+id/tv_genre_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:text="@string/genre"
-                />
+                android:textColor="@color/white" />
+
             <TextView
                 android:id="@+id/tv_ph_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:text="@string/production_house"
-                />
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 
@@ -122,6 +122,7 @@
         android:id="@+id/ll_movie_overview"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="16dp"
         android:gravity="fill"
         android:orientation="horizontal"
         android:weightSum="3"
@@ -233,6 +234,30 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_sinopsis"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Sinopsis"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_movie_overview" />
+
+    <TextView
+        android:id="@+id/tv_movie_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sinopsis" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
