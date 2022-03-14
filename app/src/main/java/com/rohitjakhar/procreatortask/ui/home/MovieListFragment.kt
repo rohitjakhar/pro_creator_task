@@ -1,16 +1,20 @@
 package com.rohitjakhar.procreatortask.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rohitjakhar.procreatortask.data.model.VoucherDealModel
+import coil.load
+import coil.transform.CircleCropTransformation
+import com.rohitjakhar.procreatortask.R
+import com.rohitjakhar.procreatortask.data.dummy_data.getOfferData
+import com.rohitjakhar.procreatortask.data.dummy_data.getVoucherData
 import com.rohitjakhar.procreatortask.databinding.FragmentMovieListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -30,6 +34,11 @@ class MovieListFragment : Fragment() {
             )
         }
     }
+    private val offerPagerAdapter by lazy {
+        OfferPagerAdapter() {
+            Toast.makeText(requireContext(), "Offer Clicked", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,9 +52,24 @@ class MovieListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         initVoucherDealRV()
+        initOfferPager()
         initMovieListRV()
         collectUiState()
+    }
+
+    private fun initView() = binding.apply {
+        ivUserIcon.load(R.drawable.user_image) {
+            transformations(CircleCropTransformation())
+        }
+    }
+
+    private fun initOfferPager() {
+        binding.viewPagerOffer.apply {
+            adapter = offerPagerAdapter
+        }
+        offerPagerAdapter.submitList(getOfferData())
     }
 
     private fun initMovieListRV() {
@@ -62,32 +86,7 @@ class MovieListFragment : Fragment() {
             adapter = voucherDealAdapter
         }
         voucherDealAdapter.submitList(
-            listOf(
-                VoucherDealModel(
-                    voucherId = "123",
-                    voucherTitle = "New Offer",
-                    voucherOffer = 20,
-                    userName = "Rohit"
-                ),
-                VoucherDealModel(
-                    voucherId = "1234",
-                    voucherTitle = "New Offer",
-                    voucherOffer = 25,
-                    userName = "Rohit"
-                ),
-                VoucherDealModel(
-                    voucherId = "1235",
-                    voucherTitle = "New Offer",
-                    voucherOffer = 30,
-                    userName = "Rohit"
-                ),
-                VoucherDealModel(
-                    voucherId = "1236",
-                    voucherTitle = "New Offer",
-                    voucherOffer = 10,
-                    userName = "Rohit"
-                )
-            )
+            getVoucherData()
         )
     }
 

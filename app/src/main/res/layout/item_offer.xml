@@ -2,13 +2,13 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     app:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/voucher_item_back_ground"
         android:padding="8dp">
 
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_voucher_title"
+            android:id="@+id/tv_offer_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -38,12 +38,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/tv_voucher_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_voucher_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_offer_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_offer_title"
             tools:text="Mulani" />
 
         <TextView
-            android:id="@+id/tv_user_name"
+            android:id="@+id/tv_ofer_rate"
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,13 +53,13 @@
             tools:text="Rp.20,000" />
 
         <TextView
-            android:id="@+id/tv_voucher_discount"
+            android:id="@+id/tv_offer_per_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="bottom"
             android:textColor="@color/gold"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_user_name"
-            app:layout_constraintStart_toEndOf="@+id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_ofer_rate"
+            app:layout_constraintStart_toEndOf="@+id/tv_ofer_rate"
             tools:text="/30 Hari" />
 
         <com.google.android.material.card.MaterialCardView
@@ -69,11 +69,11 @@
             app:cardBackgroundColor="@color/gold"
             app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_voucher_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_user_name">
+            app:layout_constraintStart_toStartOf="@+id/tv_offer_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ofer_rate">
 
             <TextView
-                android:id="@+id/tv_voucher_name"
+                android:id="@+id/tv_offer_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
