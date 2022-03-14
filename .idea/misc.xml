@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_ticket.xml" value="0.253" />
         <entry key="app/src/main/res/drawable/voucher_item_back_ground.xml" value="0.3075" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/fragment_movie_details.xml" value="0.35" />
         <entry key="app/src/main/res/layout/fragment_movie_list.xml" value="0.35" />
         <entry key="app/src/main/res/layout/item_movie.xml" value="0.35" />
         <entry key="app/src/main/res/layout/item_offer.xml" value="0.35" />

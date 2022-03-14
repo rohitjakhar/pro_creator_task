@@ -11,4 +11,10 @@
     <string name="tangerrange_selatan">Tangerrange Selatan</string>
     <string name="user_icon">user icon</string>
     <string name="klik_disini">Klik Disini</string>
+    <string name="duration">Duration</string>
+    <string name="p_g">P-G</string>
+    <string name="director">Director</string>
+    <string name="writter">Writter</string>
+    <string name="production_house">PH</string>
+    <string name="genre">Genre</string>
 </resources>
