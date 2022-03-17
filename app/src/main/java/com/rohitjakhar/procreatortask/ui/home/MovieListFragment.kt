@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import coil.load
 import coil.transform.CircleCropTransformation
@@ -21,6 +22,7 @@ import com.rohitjakhar.procreatortask.hide
 import com.rohitjakhar.procreatortask.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlin.math.abs
 
 @AndroidEntryPoint
 class MovieListFragment : Fragment() {
@@ -74,8 +76,15 @@ class MovieListFragment : Fragment() {
             clipToPadding = false
             clipChildren = false
             offscreenPageLimit = 3
-            setPageTransformer(MarginPageTransformer(80))
-            setPadding(40, 0, 40, 0)
+            setPageTransformer(
+                CompositePageTransformer().apply {
+                    addTransformer(MarginPageTransformer(40))
+                    addTransformer { page, position ->
+                        val r: Float = 1 - abs(position)
+                        page.scaleY = 0.85f + r * 0.15f
+                    }
+                }
+            )
         }
         offerPagerAdapter.submitList(getOfferData())
     }

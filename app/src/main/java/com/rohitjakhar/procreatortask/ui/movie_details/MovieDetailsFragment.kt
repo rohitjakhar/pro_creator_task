@@ -13,6 +13,8 @@ import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.rohitjakhar.procreatortask.data.model.MovieDetailsModel
 import com.rohitjakhar.procreatortask.databinding.FragmentMovieDetailsBinding
+import com.rohitjakhar.procreatortask.hide
+import com.rohitjakhar.procreatortask.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -43,8 +45,9 @@ class MovieDetailsFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.movieDetailState.collectLatest {
                 if (it.isLoading) {
-                    // TODO: Show Loading Screen
+                    binding.progressMovieDetailsLoad.show()
                 } else {
+                    binding.progressMovieDetailsLoad.hide()
                     if (it.movieDetails != null) {
                         updateUI(it.movieDetails)
                     } else {
@@ -69,7 +72,7 @@ class MovieDetailsFragment : Fragment() {
         tvMovieRating.text = "${movieDetails.movieRating}/10"
         tvMovieDuration.text = "${movieDetails.movieDuration} Min"
         tvMovieOverview.text = movieDetails.movieDescription
-        Log.d("test","genre: ${movieDetails.movieGenre}")
+        Log.d("test", "genre: ${movieDetails.movieGenre}")
     }
 
     override fun onDestroy() {

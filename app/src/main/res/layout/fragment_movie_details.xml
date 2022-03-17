@@ -7,6 +7,16 @@
     app:layoutDescription="@xml/fragment_movie_details_scene"
     tools:background="@color/black">
 
+    <ProgressBar
+        android:id="@+id/progress_movie_details_load"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/iv_movie_cover"
         android:layout_width="match_parent"
@@ -53,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_movie_title">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -85,7 +95,7 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
